@@ -1,3 +1,7 @@
+apply {
+	from("database/tasks.gradle")
+}
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.1.2"

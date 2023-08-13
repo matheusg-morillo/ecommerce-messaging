@@ -1,0 +1,13 @@
+tasks.register("dbUp") {
+	exec {
+		executable("docker")
+		args("compose", "up", "database", "-d")
+	}
+}
+
+tasks.register("dbDown") {
+	exec {
+		executable("docker")
+		args("compose", "down", "database")
+	}
+}

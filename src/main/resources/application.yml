@@ -1,1 +1,5 @@
-
+spring:
+  datasource:
+    url: jdbc:postgressql://localhost:5432
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
