@@ -1,0 +1,9 @@
+FROM postgres
+
+RUN mkdir /usr/config
+
+ADD ./database/container /usr/config
+
+RUN chmod +x /usr/config/entrypoint.sh
+
+#ENTRYPOINT ["/usr/config/entrypoint.sh"]

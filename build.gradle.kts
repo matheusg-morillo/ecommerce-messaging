@@ -30,6 +30,18 @@ dependencies {
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 }
 
+flyway {
+	val databaseUrl = System.getenv()["DATABASE_URL"]
+	val migrationUsername = System.getenv()["MIGRATION_USERNAME"]
+	val migrationPassword = System.getenv()["MIGRATION_PASSWORD"]
+	val databaseSchema = System.getenv()["DATABASE_SCHEMA"]
+
+	url = databaseUrl
+	user = migrationUsername
+	password = migrationPassword
+	schemas = arrayOf(databaseSchema)
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
