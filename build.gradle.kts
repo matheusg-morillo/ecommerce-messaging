@@ -6,6 +6,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.1.2"
 	id("io.spring.dependency-management") version "1.1.2"
+	id("org.flywaydb.flyway") version "9.21.1"
 }
 
 group = "com.example"
@@ -24,6 +25,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.1.2")
 	implementation("org.apache.kafka:kafka-streams")
 	implementation("org.springframework.kafka:spring-kafka")
+	implementation("org.flywaydb:flyway-core:9.21.1")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 }
