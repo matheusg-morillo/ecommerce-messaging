@@ -6,7 +6,6 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO :migration_user
 
 CREATE USER :database_username WITH ENCRYPTED PASSWORD ':database_password';
 GRANT USAGE ON SCHEMA public TO :database_username;
-GRANT CONNECT TO DATABASE ECOMMERCE_MESSAGING TO :database_username;
 GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO :database_username;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO :database_username;
 GRANT UPDATE ON ALL TABLES IN SCHEMA public TO :database_username;

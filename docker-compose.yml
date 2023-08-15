@@ -1,14 +1,12 @@
 version: "3.8"
 services:
   database:
-    build:
-      dockerfile: "database/container/dockerfile"
+    image: postgres
+    build: ./database
     environment:
       POSTGRES_USERNAME: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      MIGRATION_USERNAME: ${MIGRATION_USERNAME}
-      MIGRATION_PASSWORD: ${MIGRATION_PASSWORD}
+    volumes:
+      - "./database/container:/usr/config"
     ports:
       - "5432:5432"
