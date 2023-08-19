@@ -1,5 +1,10 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
   datasource:
     url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    username: ${MIGRATION_USERNAME}
+    password: ${MIGRATION_PASSWORD}
+  flyway:
+    enabled: true
+    validate-on-migrate: true

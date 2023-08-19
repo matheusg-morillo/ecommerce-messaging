@@ -42,22 +42,46 @@ flyway {
 
 tasks.register<Exec>("dbUp") {
     executable("docker")
-    args("compose", "up", "database", "-d")
+    args("compose", "up", "db", "-d")
 }
 
 tasks.register<Exec>("dbDown") {
     executable("docker")
-    args("compose", "down", "database")
+    args("compose", "down", "db")
 }
 
-tasks.register<Exec>("dbInit") {
+tasks.register<Exec>("dbCreate") {
     val databaseUsername = env.DATABASE_USERNAME.value
     val databasePassword = env.DATABASE_PASSWORD.value
     val migrationUsername = env.MIGRATION_USERNAME.value
     val migrationPassword = env.MIGRATION_PASSWORD.value
 
     executable("docker")
-    args("compose", "exec", "-it", "database", "psql", "-U", "postgres", "-v", "database_username=$databaseUsername", "-v", "database_password=$databasePassword", "-v", "migration_username=$migrationUsername", "-v", "migration_password=$migrationPassword", "-f", "/usr/config/init.sql")
+    args("compose", "exec", "-it", "db", "psql", "-U", "postgres",
+            "-v", "database_username=$databaseUsername",
+            "-v", "database_password=$databasePassword",
+            "-v", "migration_username=$migrationUsername",
+            "-v", "migration_password=$migrationPassword",
+            "-f", "/usr/config/create_database.sql"
+    )
+
+    finalizedBy("dbCreateUsers")
+}
+
+tasks.register<Exec>("dbCreateUsers") {
+    val databaseUsername = env.DATABASE_USERNAME.value
+    val databasePassword = env.DATABASE_PASSWORD.value
+    val migrationUsername = env.MIGRATION_USERNAME.value
+    val migrationPassword = env.MIGRATION_PASSWORD.value
+
+    executable("docker")
+    args("compose", "exec", "-it", "db", "psql", "-U", "postgres", "-d", "ecommerce_messaging",
+            "-v", "database_username=$databaseUsername",
+            "-v", "database_password=$databasePassword",
+            "-v", "migration_username=$migrationUsername",
+            "-v", "migration_password=$migrationPassword",
+            "-f", "/usr/config/create_users.sql"
+    )
 }
 
 tasks.withType<Test> {

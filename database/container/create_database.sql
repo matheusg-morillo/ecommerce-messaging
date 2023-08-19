@@ -1,0 +1,4 @@
+CREATE DATABASE ecommerce_messaging;
+
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON DATABASE ecommerce_messaging FROM PUBLIC;
