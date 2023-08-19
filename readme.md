@@ -107,6 +107,7 @@ change a new version is required.**
     coupon {
         integer id PK
         varchar label
+        varchar code
         decimal discount
         enabled boolean
     }
