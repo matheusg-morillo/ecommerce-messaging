@@ -74,7 +74,7 @@ change a new version is required.**
         integer id PK
         decimal total_amount
         decimal shipping_cost
-        decimal discount
+        integer coupon_id FK
         varchar customer_id FK
         LocalDate created_at
     }
@@ -104,6 +104,13 @@ change a new version is required.**
         boolean standard
     }
     
+    coupon {
+        integer id PK
+        varchar label
+        decimal discount
+        enabled boolean
+    }
+    
     customer ||--o{ order : places
     
     order ||--|{ order_item : contains
@@ -113,4 +120,6 @@ change a new version is required.**
     pricebook ||--o{ pricebook_product : has
     
     product ||--o{ pricebook_product : has
+    
+    order ||--o| coupon : apply
 ```
