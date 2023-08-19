@@ -51,9 +51,9 @@ To apply the latest version of the database
 **There's no way to undo migrations since the community edition of flyway does not support this feature. To undo any
 change a new version is required.**
 
-## Endpoints
+## Endpoints (WIP)
 
-## Database current state
+## Database diagram (WIP)
 
 ```mermaid
     erDiagram
