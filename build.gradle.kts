@@ -4,9 +4,6 @@ plugins {
     id("co.uzzu.dotenv.gradle") version "2.0.0"
 }
 
-group = "com.matheus"
-version = "0.0.1-SNAPSHOT"
-
 tasks.withType<Test> {
     useJUnitPlatform()
 }
