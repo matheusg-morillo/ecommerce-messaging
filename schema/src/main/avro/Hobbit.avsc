@@ -1,0 +1,14 @@
+{
+  "fields": [
+    {
+      "name": "quote",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    }
+  ],
+  "name": "Hobbit",
+  "namespace": "com.example.ecommercemessagingschemaregistry",
+  "type": "record"
+}
