@@ -9,6 +9,6 @@
     }
   ],
   "name": "Hobbit",
-  "namespace": "com.example.ecommercemessagingschemaregistry",
+  "namespace": "com.matheus.ecommercemessaging.schema",
   "type": "record"
 }

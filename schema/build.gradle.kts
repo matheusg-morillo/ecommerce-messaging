@@ -5,7 +5,7 @@ plugins {
     id("com.github.davidmc24.gradle.plugin.avro") version "1.8.0"
 }
 
-group = "com.example"
+group = "com.matheus"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -19,7 +19,7 @@ repositories {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            artifactId = "ecommerce-messaging-schema-registry"
+            artifactId = "ecommerce-messaging-schema"
             from(components["java"])
         }
     }
@@ -36,4 +36,15 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.withType<Jar> {
+    archiveBaseName.set("ecommerce-messaging-schema")
+}
+
+tasks.named<Copy>("processResources") {
+   from("src/main/avro") {
+       include("**/*.avro")
+
+   }
 }
