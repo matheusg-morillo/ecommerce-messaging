@@ -1,4 +1,4 @@
-package com.matheus.ecommercemessaging;
+package com.example.ecommercemessaging;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
