@@ -4,10 +4,18 @@ plugins {
     id("io.spring.dependency-management") version "1.1.2"
     id("org.flywaydb.flyway") version "9.21.1"
     id("co.uzzu.dotenv.gradle") version "2.0.0"
+    id("com.intershop.gradle.scmversion") version "6.2.0"
 }
 
-group = "com.example"
-version = "0.0.1-SNAPSHOT"
+scm {
+    version {
+        type = "threeDigits"
+        initialVersion = "0.1.0"
+    }
+}
+
+group = "com.matheus"
+version = scm.version.version
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
