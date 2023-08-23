@@ -33,6 +33,7 @@ dependencies {
     implementation("org.springframework.kafka:spring-kafka")
     implementation("org.postgresql:postgresql:42.5.4")
     implementation("org.flywaydb:flyway-core:9.21.1")
+    implementation("com.matheus.ecommerce-messaging-schema-registry:0.1.0-SNAPSHOT")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
