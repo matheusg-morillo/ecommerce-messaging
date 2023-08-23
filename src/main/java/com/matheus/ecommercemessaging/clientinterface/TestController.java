@@ -1,4 +1,4 @@
-package com.example.ecommercemessaging.clientinterface;
+package com.matheus.ecommercemessaging.clientinterface;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
